@@ -1,4 +1,5 @@
 #!/usr/bin/python3.7
+# cython: language_level=3
 # -*- coding: utf-8 -*-
 # @Time  : 2020/2/21 21:15
 # @Author: Jtyoui@qq.com
@@ -81,3 +82,40 @@ cpdef key_value_re(key, value, value_re=None, key_re=None):
     else:
         raise ValueError('key和value的长度要一样长')
     return ls
+
+cpdef reader_configure(path, encoding = 'UTF-8'):
+    """读取配置文件
+    [capitalize]
+    a
+    b
+
+    :param path: 配置文件路径
+    :param encoding: 文件编码
+    """
+    cx = {}
+    with open(path, encoding=encoding)as fp:
+        for data in fp:
+            data = data.strip()
+            if data.startswith('[') and data.endswith(']'):
+                key = data[1:-1]
+                cx.setdefault(key, [])
+            elif (not data.startswith('#')) and data:
+                cx[key].append(data)
+            else:
+                pass
+    return cx
+
+cpdef save_configure(cx, path, encoding='UTF-8'):
+    """保存配置文件
+
+    :param cx: 保存的字典类型：{str：list}
+    :param path: 保存的路径
+    :param encoding: 保存文件的编码
+    """
+    with open(path, 'w', encoding=encoding)as fp:
+        for key, value in cx.items():
+            fp.write(f'[{key}]\n')
+            for v in value:
+                fp.write(v.strip() + '\n')
+            fp.write('\n')
+    return True

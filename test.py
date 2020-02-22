@@ -15,3 +15,9 @@ print(value)
 
 value = key_value_re(key=['a', 'b'], value=[0, 1], value_re='[01]')
 print(value)
+
+r = reader_configure(r'C:\Users\Administrator\Desktop\单位简称.txt')
+print(r)
+
+b = save_configure(r, r'C:\Users\Administrator\Desktop\单位简称1.txt')
+print(b)

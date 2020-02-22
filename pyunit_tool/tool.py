@@ -1,4 +1,5 @@
 #!/usr/bin/python3.7
+# cython: language_level=3
 # -*- coding: utf-8 -*-
 # @Time  : 2020/2/21 21:51
 # @Author: Jtyoui@qq.com
@@ -48,5 +49,27 @@ def key_value_re(key: list, value: list, value_re: str = None, key_re: str = Non
     :param value: v值。[0,1]
     :param value_re: 根据值的正则获取key。比如：01正则表达式获取到ab
     :param key_re: 同理。根据key的正则。获取到值。比如：ab正则表达式。返回01
+    """
+    pass
+
+
+def reader_configure(path: str, encoding: str = 'UTF-8') -> dict:
+    """读取配置文件
+    [capitalize]
+    a
+    b
+
+    :param path: 配置文件路径
+    :param encoding: 文件编码
+    """
+    pass
+
+
+def save_configure(cx: dict, path: str, encoding='UTF-8'):
+    """保存配置文件
+
+    :param cx: 保存的字典类型：{str：list}
+    :param path: 保存的路径
+    :param encoding: 保存文件的编码
     """
     pass
