@@ -3,6 +3,7 @@
 # @Time  : 2020/2/18 15:23
 # @Author: Jtyoui@qq.com
 from setuptools import setup, find_packages
+from distutils.extension import Extension
 from pyunit_tool import __version__, __author__, __description__, __email__, __names__, __url__
 
 with open('README.md', encoding='utf-8') as f:
@@ -10,6 +11,10 @@ with open('README.md', encoding='utf-8') as f:
 
 with open('requirements.txt', encoding='utf-8') as f:
     install_requires = f.read().strip().splitlines()
+
+ext_modules = [
+    Extension('tool', ['pyunit_tool/tool.pyx'])
+]
 
 setup(
     name=__names__.lower(),
@@ -23,12 +28,15 @@ setup(
     license='MIT Licence',
     packages=find_packages(),
     platforms='any',
-    package_data={'': ['*']},
+    package_data={'pyunit_tool': ['*.py', '*.c']},
     install_requires=install_requires,
     classifiers=[
         "Programming Language :: Python :: 3",
+        "Programming Language :: C",
         "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
+        "Operating System :: Microsoft :: Windows",
+        "Operating System :: POSIX :: Linux"
     ],
     zip_safe=False,
+    ext_modules=ext_modules
 )
