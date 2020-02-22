@@ -12,3 +12,6 @@ print(value)
 
 value = remove_subset(['a', 'b', 'ab'])
 print(value)
+
+value = key_value_re(key=['a', 'b'], value=[0, 1], value_re='[01]')
+print(value)

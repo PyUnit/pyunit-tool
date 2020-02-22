@@ -39,3 +39,14 @@ def remove_subset(ls: list) -> list:
     :return: 返回去重后的结果
     """
     pass
+
+
+def key_value_re(key: list, value: list, value_re: str = None, key_re: str = None) -> list:
+    """根据value值的索引获取key或者根据key的索引获取到value
+
+    :param key: k值。['a','b']
+    :param value: v值。[0,1]
+    :param value_re: 根据值的正则获取key。比如：01正则表达式获取到ab
+    :param key_re: 同理。根据key的正则。获取到值。比如：ab正则表达式。返回01
+    """
+    pass

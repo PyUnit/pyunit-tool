@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 # @Time  : 2020/2/21 21:15
 # @Author: Jtyoui@qq.com
+import re
+
 cpdef list_contain_string_subset(ls, string):
     """列表中的某一个值是属于字符串的子集
     
@@ -53,3 +55,29 @@ cpdef remove_subset(ls):
         else:
             total.append(ls[i])
     return total
+
+cpdef key_value_re(key, value, value_re=None, key_re=None):
+    """根据value值的索引获取key或者根据key的索引获取到value
+
+    :param key: k值。['a','b']
+    :param value: v值。[0,1]
+    :param value_re: 根据值的正则获取key。比如：01正则表达式获取到ab
+    :param key_re: 同理。根据key的正则。获取到值。比如：ab正则表达式。返回01
+    """
+    cdef int length = len(key)
+    ls = []
+    if len(key) == len(value):
+        for index in range(length):
+            k = key[index]
+            v = value[index]
+            if value_re:
+                match = re.match(value_re, str(v))
+                if match:
+                    ls.append(k)
+            elif key_re:
+                match = re.match(key_re, str(k))
+                if match:
+                    ls.append(v)
+    else:
+        raise ValueError('key和value的长度要一样长')
+    return ls
