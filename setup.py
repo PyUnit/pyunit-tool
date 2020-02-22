@@ -16,7 +16,7 @@ with open(dirs + os.sep + 'requirements.txt', encoding='utf-8') as f:
     install_requires = f.read().strip().splitlines()
 
 ext_modules = [
-    Extension('tool', [dirs + os.sep + __names__ + os.sep + 'tool.pyx'])
+    Extension('tool', [dirs + os.sep + __names__ + os.sep + 'tool.c'])
 ]
 
 setup(
@@ -31,7 +31,7 @@ setup(
     license='MIT Licence',
     packages=find_packages(),
     platforms='any',
-    package_data={'': ['*.py', '*.c']},
+    package_data={__names__: ['*.py', '*.c', '*.pyd']},
     install_requires=install_requires,
     classifiers=[
         "Programming Language :: Python :: 3",
