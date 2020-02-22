@@ -4,5 +4,4 @@ venv/*
 build/*
 dist/*
 *.egg-info/*
-setup.py
-*.pyd
+csetup.py
