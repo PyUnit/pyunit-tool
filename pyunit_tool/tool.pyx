@@ -139,3 +139,18 @@ cpdef get_file_md5(file_path):
     if data and isinstance(data, str):
         return data.upper()
     return ''
+
+cpdef binary_search(ls, key, lows=None, highs=None):
+    cdef int length = len(ls)
+    cdef int low = lows or 0
+    cdef int high = highs or (len(ls) - 1)
+    cdef int mid = 0
+    while 0 <= low <= high < length:
+        mid = (low + high) // 2
+        if ls[mid] == key:
+            return mid
+        elif ls[mid] > key:
+            high = mid - 1
+        else:
+            low = mid + 1
+    return -1

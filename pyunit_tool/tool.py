@@ -97,3 +97,12 @@ def get_file_md5(file_path: str) -> str:
     :return: MD5校验值
     """
     pass
+
+
+def binary_search(ls, key, low=None, high=None):
+    """二分搜索算法
+
+    >>> print(binary_search([1, 2, 3, 4, 5, 7], 6))
+
+    """
+    pass

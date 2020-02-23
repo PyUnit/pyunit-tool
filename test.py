@@ -24,3 +24,4 @@ print(b)
 
 value = get_file_md5(r'README.md')
 print(value)
+print(binary_search([1, 2, 3, 4, 5, 7], 6))
