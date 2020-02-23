@@ -4,6 +4,7 @@
 # @Time  : 2020/2/21 21:15
 # @Author: Jtyoui@qq.com
 import re
+import hashlib
 
 cpdef list_contain_string_subset(ls, string):
     """列表中的某一个值是属于字符串的子集
@@ -119,3 +120,22 @@ cpdef save_configure(cx, path, encoding='UTF-8'):
                 fp.write(v.strip() + '\n')
             fp.write('\n')
     return True
+
+cpdef get_file_md5(file_path):
+    """获取文件的MD5值
+    
+    :param file_path: 文件地址
+    :return: MD5校验值
+    """
+    hash_ = hashlib.md5()
+    with open(file_path, 'rb')as f:
+        while True:
+            b = f.read(8096)
+            if not b:
+                break
+            else:
+                hash_.update(b)
+    data = hash_.hexdigest()
+    if data and isinstance(data, str):
+        return data.upper()
+    return ''

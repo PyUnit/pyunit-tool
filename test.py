@@ -21,3 +21,6 @@ print(r)
 
 b = save_configure(r, r'C:\Users\Administrator\Desktop\单位简称1.txt')
 print(b)
+
+value = get_file_md5(r'README.md')
+print(value)
