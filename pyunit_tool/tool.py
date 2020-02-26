@@ -67,7 +67,7 @@ def reader_configure(path: str, encoding: str = 'UTF-8') -> dict:
     a
     b
 
-    >>> print(reader_configure(r'C:\Users\Administrator\Desktop\单位简称.txt'))
+    >>> print(reader_configure(r'单位简称.txt'))
 
     :param path: 配置文件路径
     :param encoding: 文件编码
@@ -78,8 +78,8 @@ def reader_configure(path: str, encoding: str = 'UTF-8') -> dict:
 def save_configure(cx: dict, path: str, encoding='UTF-8'):
     """保存配置文件
 
-    >>> r = reader_configure(r'C:\Users\Administrator\Desktop\单位简称.txt')
-    >>> save_configure(r, r'C:\Users\Administrator\Desktop\单位简称1.txt')
+    >>> r = reader_configure(r'单位简称.txt')
+    >>> save_configure(r, r'单位简称1.txt')
 
     :param cx: 保存的字典类型：{str：list}
     :param path: 保存的路径

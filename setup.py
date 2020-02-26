@@ -4,6 +4,7 @@
 # @Author: Jtyoui@qq.com
 from setuptools import setup, find_packages
 from distutils.extension import Extension
+from os.path import join
 import os
 from pyunit_tool import __version__, __author__, __description__, __email__, __names__, __url__
 
@@ -16,7 +17,7 @@ with open(dirs + os.sep + 'requirements.txt', encoding='utf-8') as f:
     install_requires = f.read().strip().splitlines()
 
 ext_modules = [
-    Extension('tool', [dirs + os.sep + __names__ + os.sep + 'tool.c'])
+    Extension('pyunit_tool.tool', [join(dirs, 'pyunit_tool', 'tool.pyx')])
 ]
 
 setup(
@@ -31,7 +32,7 @@ setup(
     license='MIT Licence',
     packages=find_packages(),
     platforms='any',
-    package_data={__names__: ['*.py', '*.c', '*.pyd']},
+    package_data={__names__: ['*.py']},
     install_requires=install_requires,
     classifiers=[
         "Programming Language :: Python :: 3",
