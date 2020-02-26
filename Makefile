@@ -1,4 +1,2 @@
-cd pyunit_tool
-python setup.pys build_ext --inplace
-cd ..
+pip install wheel cython
 python setup.py bdist_wheel
