@@ -26,6 +26,7 @@ cpdef string_contain_list_subset(ls, string):
 
 cpdef remove_subset(ls):
     """去除列表中的子集"""
+    ls = list(set(ls))
     cdef int length = len(ls)
     total = []
     for i in range(length):
