@@ -14,7 +14,7 @@ with open(dirs + os.sep + 'README.md', encoding='utf-8') as f:
     long_text = f.read()
 
 ext_modules = [
-    Extension('pyunit_tool.tool', [join(dirs, 'pyunit_tool', 'tool.pyx')])
+    Extension('pyunit_tool.tool', [join(dirs, 'pyunit_tool', 'tool.c')])
 ]
 
 setup(
