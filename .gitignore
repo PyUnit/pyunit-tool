@@ -5,5 +5,4 @@ build/*
 dist/*
 *.egg-info/*
 csetup.py
-*.c
 *.pyd

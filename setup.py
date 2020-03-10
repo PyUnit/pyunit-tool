@@ -13,9 +13,6 @@ dirs = os.path.abspath(os.path.dirname(__file__))
 with open(dirs + os.sep + 'README.md', encoding='utf-8') as f:
     long_text = f.read()
 
-with open(dirs + os.sep + 'requirements.txt', encoding='utf-8') as f:
-    install_requires = f.read().strip().splitlines()
-
 ext_modules = [
     Extension('pyunit_tool.tool', [join(dirs, 'pyunit_tool', 'tool.pyx')])
 ]
@@ -32,8 +29,8 @@ setup(
     license='MIT Licence',
     packages=find_packages(),
     platforms='any',
-    package_data={__names__: ['*.py']},
-    install_requires=install_requires,
+    package_data={__names__: ['*.py', '*.c']},
+    install_requires=[],
     classifiers=[
         "Programming Language :: Python :: 3",
         "Programming Language :: C",
